@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Next.js Dashboard</title>
 </head>
+
 <body>
   <div id="app"></div>
   <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
@@ -14,14 +16,22 @@
   <script type="text/jsx">
     const app = document.getElementById('app');
 
-    function Header() {
-      return <h1>Develop. Preview. Ship.</h1>;
+    function Header({title}) {
+      console.log(title);
+      return <h1>{title}</h1>;
     }
 
     function HomePage() {
+      const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+      console.log(names);
       return (
         <div>
-          <Header />
+          <Header title="Develop. Preview. Ship. " />
+          <ul>
+            {names.map((name) => (
+              <li key={name}>{name}</li>
+            ))}
+            </ul>
           <p>Welcome to my Next.js Dashboard</p>
         </div>
       );
@@ -31,4 +41,5 @@
     root.render(<HomePage />);
   </script>
 </body>
+
 </html>
